@@ -6,7 +6,33 @@
 
     <groupId>io.membrane-api</groupId>
     <artifactId>jmediator</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
+
+    <name>JMediator</name>
+    <description>Simple mediator implementation for Java. Makes it possible to use the Vertical Slice Architecture with Java and Spring Boot.</description>
+    <url>https://github.com/membrane/jmediator</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Thomas Bayer</name>
+            <email>bayer@predic8.de</email>
+            <organization>predic8</organization>
+            <organizationUrl>https://www.predic8.de</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/membrane/jmediator.git</connection>
+        <developerConnection>scm:git:ssh://github.com:membrane/jmediator.git</developerConnection>
+        <url>https://github.com/membrane/jmediator/tree/main</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
