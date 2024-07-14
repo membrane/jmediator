@@ -1,10 +1,7 @@
 name: Create Release
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
+  - workflow_dispatch
+
 jobs:
   release:
     runs-on: ubuntu-latest
