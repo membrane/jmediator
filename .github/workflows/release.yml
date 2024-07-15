@@ -39,18 +39,17 @@ jobs:
             -Possrh \
             -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
             clean verify
-      - name: Ensure release files exist
-        run: |
-          touch distribution/release-notes/${{ steps.get_version.outputs.VERSION }}.md
-          touch distribution/target/membrane-api-gateway-${{ steps.get_version.outputs.VERSION }}.zip.asc
       - name: Create Release v${{ steps.get_version.outputs.VERSION }}
         uses: ncipollo/release-action@v1
         with:
-          name: v${{ steps.get_version.outputs.VERSION }}
-          tag: ${{ github.head_ref }}
+          # name: v${{ steps.get_version.outputs.VERSION }}
+          name: 0.1.0
+          # tag: ${{ github.head_ref }}
+          tag: 0.1.0
           commit: "main"
           prerelease: true
           #          makeLatest: true
-          bodyFile: "distribution/release-notes/${{ steps.get_version.outputs.VERSION }}.md"
-          artifacts: "distribution/target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip,distribution/target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip.asc"
+          # bodyFile: "distribution/release-notes/${{ steps.get_version.outputs.VERSION }}.md"
+          # artifacts: "target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip,distribution/target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip.asc"
+          artifacts: "target/jmediator-0.1.0.zip,target/jmediator-0.1.0.zip.asc"
           token: ${{ secrets.PAT }}
