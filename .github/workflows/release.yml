@@ -1,10 +1,11 @@
 name: Create Release
 on:
-  workflow_dispatch:
-    version:
-      description: 'Version number of the release (Format 0.0.0)'
-      required: true
-      type: string
+  inputs:
+    workflow_dispatch:
+      version:
+        description: 'Version number of the release (Format 0.0.0)'
+        required: true
+        type: string
 
 jobs:
   release:
