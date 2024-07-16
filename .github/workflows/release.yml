@@ -46,7 +46,7 @@ jobs:
         run: |
           ls; \
           ls target
-      - name: Create Release v${{ steps.get_version.outputs.VERSION }}
+      - name: Create Release ${{ inputs.version }}
         uses: ncipollo/release-action@v1
         with:
           # name: v${{ steps.get_version.outputs.VERSION }}
