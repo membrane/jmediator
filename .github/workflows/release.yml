@@ -45,9 +45,9 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           # name: v${{ steps.get_version.outputs.VERSION }}
-          name: JMediator ${{ inputs.print_tags }}
+          name: JMediator ${{ inputs.version }}
           # tag: ${{ github.head_ref }}
-          tag: ${{ inputs.print_tags }}
+          tag: ${{ inputs.version }}
           commit: "main"
           prerelease: true
           #          makeLatest: true
