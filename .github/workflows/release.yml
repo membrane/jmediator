@@ -52,4 +52,4 @@ jobs:
           # bodyFile: "distribution/release-notes/${{ steps.get_version.outputs.VERSION }}.md"
           # artifacts: "target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip,distribution/target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip.asc"
           artifacts: "target/jmediator-0.1.0.zip,target/jmediator-0.1.0.zip.asc"
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
