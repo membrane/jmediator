@@ -1,14 +1,15 @@
 name: Create Release
 on:
-  - workflow_dispatch
+  workflow_dispatch:
+    version:
+      description: 'Version number of the release (Format 0.0.0)'
+      required: true
+      type: string
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Get version
-        id: get_version
-        run: echo '${{ github.head_ref }}' | sed 's/v/::set-output name=VERSION::/'
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -43,13 +44,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           # name: v${{ steps.get_version.outputs.VERSION }}
-          name: 0.1.0
+          name: JMediator ${{ inputs.print_tags }}
           # tag: ${{ github.head_ref }}
-          tag: 0.1.0
+          tag: ${{ inputs.print_tags }}
           commit: "main"
           prerelease: true
           #          makeLatest: true
           # bodyFile: "distribution/release-notes/${{ steps.get_version.outputs.VERSION }}.md"
           # artifacts: "target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip,distribution/target/jmediator-${{ steps.get_version.outputs.VERSION }}.zip.asc"
-          artifacts: "target/jmediator-0.1.0.zip,target/jmediator-0.1.0.zip.asc"
+          artifacts: "target/jmediator-${{ inputs.version }}.zip,target/jmediator-${{ inputs.version }}.zip.asc"
           token: ${{ secrets.GITHUB_TOKEN }}
