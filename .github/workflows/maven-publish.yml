@@ -33,4 +33,5 @@ jobs:
             -Possrh \
             -DskipTests \
             -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
+            -e -X \
             clean deploy
