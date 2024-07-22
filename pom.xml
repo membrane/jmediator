@@ -6,7 +6,7 @@
 
     <groupId>io.membrane-api</groupId>
     <artifactId>jmediator</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <name>JMediator</name>
     <description>Simple mediator implementation for Java. Makes it possible to use the Vertical Slice Architecture with Java and Spring Boot.</description>
