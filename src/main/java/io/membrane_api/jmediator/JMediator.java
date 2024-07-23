@@ -1,6 +1,7 @@
 package io.membrane_api.jmediator;
 
 import org.slf4j.*;
+import org.springframework.beans.*;
 import org.springframework.context.*;
 
 import java.lang.annotation.*;
@@ -9,14 +10,15 @@ import java.util.*;
 
 import static io.membrane_api.jmediator.Util.hasAnnotation;
 
-public class JMediator {
+public class JMediator implements ApplicationContextAware {
 
     Logger log = LoggerFactory.getLogger(JMediator.class);
 
-    private final ApplicationContext context;
+    private ApplicationContext context;
 
-    public JMediator(ApplicationContext context) {
-        this.context = context;
+    @Override
+    public void setApplicationContext(ApplicationContext ctx) throws BeansException {
+        context = ctx;
     }
 
     record BeanAndMethod(Object bean, Method method) {
