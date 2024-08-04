@@ -24,13 +24,6 @@ jobs:
             --no-transfer-progress \
             --batch-mode \
             -DskipTests
-      - id: install-secret-key
-        name: Install gpg secret key
-        run: |
-          # Install gpg secret key
-          cat <(echo -e "${{ secrets.OSSRH_GPG_SECRET_KEY }}") | gpg --batch --import
-          # Verify gpg secret key
-          gpg --list-secret-keys --keyid-format LONG
       - id: build-artifact
         name: Build release artefacts
         run: |
@@ -39,13 +32,7 @@ jobs:
             --batch-mode \
             -DskipTests \
             -Possrh \
-            -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }} \
             clean verify
-      - id: ls
-        name: ls
-        run: |
-          ls; \
-          ls target
       - name: Create Release ${{ inputs.version }}
         uses: ncipollo/release-action@v1
         with:
