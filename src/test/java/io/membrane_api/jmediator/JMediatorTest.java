@@ -24,7 +24,8 @@ class JMediatorTest {
         bf.registerSingleton("sampleHandler2", new Handler2());
         bf.registerSingleton("validator", new SampleValidator());
 
-        mediator = new JMediator(ctx);
+        mediator = new JMediator();
+        mediator.setApplicationContext(ctx);
     }
 
     @Test
