@@ -31,8 +31,10 @@ jobs:
             --no-transfer-progress \
             --batch-mode \
             -DskipTests \
-            -Possrh \
+       #     -Possrh \
             clean verify
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
       - name: Create Release ${{ inputs.version }}
         uses: ncipollo/release-action@v1
         with:
