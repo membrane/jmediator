@@ -54,7 +54,7 @@ public class JMediator implements ApplicationContextAware {
             return bam.invoke(request);
         } catch (ReflectiveOperationException e) {
             log.error("Cannot call method %s on %s.".formatted(bam.method.getName(), bam.bean.getClass()),e);
-            throw new RuntimeException("Cannot call method %s on %s.".formatted(bam.method.getName(), bam.bean.getClass()));
+            throw e.getCause();
         }
     }
 
