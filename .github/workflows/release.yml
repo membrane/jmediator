@@ -26,15 +26,15 @@ jobs:
           gpg --list-secret-keys --keyid-format LONG
       - id: build-artifact
         name: Build release artefacts
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
         run: |
           mvn \
             --no-transfer-progress \
             --batch-mode \
             -DskipTests \
-       #     -Possrh \
             clean verify
-        env:
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.OSSRH_GPG_SECRET_KEY_PASSWORD }}
+
       - name: Create Release ${{ inputs.version }}
         uses: ncipollo/release-action@v1
         with:
