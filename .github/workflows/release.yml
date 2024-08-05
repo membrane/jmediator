@@ -17,13 +17,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: actions/checkout@v4
-      - id: compile
-        name: Compile
-        run: |
-          mvn install \
-            --no-transfer-progress \
-            --batch-mode \
-            -DskipTests
       - id: install-secret-key
         name: Install gpg secret key
         run: |
