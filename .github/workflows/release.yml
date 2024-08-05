@@ -32,7 +32,6 @@ jobs:
           mvn \
             --no-transfer-progress \
             --batch-mode \
-       #     -DskipTests \
             clean verify
       - name: Create Release ${{ inputs.version }}
         uses: ncipollo/release-action@v1
